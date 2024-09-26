@@ -7,10 +7,9 @@ let result = trimStr1.concat(" ", trimStr2).toUpperCase();
 console.log(result); //output HAI ALL
 //task2
 let str = "bhargavidaggubati";
-console.log(str.length);
-let middlePortion = str.substring(6, 12);
-console.log(middlePortion);
-let lastIndex = middlePortion.length - 1;
+let middlePortion = str.slice(6, 12);
+console.log(middlePortion); //vidagg
+let lastIndex = middlePortion.indexOf("g");
 console.log(lastIndex);
 let LowerCase = middlePortion.toLowerCase();
 console.log(LowerCase);
@@ -24,26 +23,25 @@ console.log(result2); // output A
 //task4
 let Str1 = "good";
 let Str2 = "morning";
-let resultStr1 = Str1.slice(0, 3);
-let resultStr2 = Str2.slice(-3);
-let fResult = resultStr1.concat(" ", resultStr2);
-console.log(fResult); //output goo ing
-let firstChar = fResult.charAt(0);
-let lastChar = fResult.charAt(fResult.length - 1);
-let finalResult = firstChar.concat(" ", lastChar).toUpperCase();
-console.log(finalResult); //G G
+let resultStr1 = Str1.slice(0, 3); // "goo"
+let resultStr2 = Str2.slice(-3); // "ing"
+let combinedResult = resultStr1.concat(" ", resultStr2); // "gooing"
+let finalResult =
+  combinedResult.charAt(0).toUpperCase() +
+  combinedResult.slice(1, -1) +
+  combinedResult.charAt(combinedResult.length - 1).toUpperCase();
+console.log(finalResult); // Output: "GooInG"
 //task5
 let S1 = "   good morning  ";
 let resultTrim = S1.trim();
 console.log(resultTrim); // Output: "good morning"
 let firstCharTrim = resultTrim.charAt(0).toUpperCase();
-console.log(firstCharTrim); // Output: "G"
 let lastCharTrim = resultTrim.charAt(resultTrim.length - 1).toUpperCase();
-console.log(lastCharTrim); // Output: "G"
-let specificPart = resultTrim.slice(1, 5);
-console.log("Specific Part:", specificPart);
+let specificPart = resultTrim.slice(1, 11);
+let Result = firstCharTrim + specificPart + lastCharTrim;
+console.log(Result);
 //task6
 let sentence = "hello there, how are you";
-let wordToFind = "are";
-let index = sentence.indexOf(wordToFind);
-console.log("Index of the word 'are':", index); //output 17
+let wordToFind = sentence.split(" ");
+let index = wordToFind.indexOf("are");
+console.log(index); //output 17
